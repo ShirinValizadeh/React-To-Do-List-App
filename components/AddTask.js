@@ -27,12 +27,13 @@ export default class AddTask extends Component {
         return (
             <div>
                 <input
+                className="form-control"
                     type="text"
                     value={taskTitle}
                     placeholder="Task Title"
                     onChange={onChangeTitle}
                 />
-                <button className="btn btn-secondary" disabled={!taskTitle} onClick={onAddTask}>
+                <button className="btn btn-secondary mt-2 right" disabled={!taskTitle} onClick={onAddTask}>
                     Add Task
                 </button>
             </div>

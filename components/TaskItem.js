@@ -8,7 +8,7 @@ const onCheckClick = ()=>{
 
 
   return (
-    <li >
+    <li className="list-group-item list-group-item-dark">
       <input 
       onClick={onCheckClick}
       type="checkbox"

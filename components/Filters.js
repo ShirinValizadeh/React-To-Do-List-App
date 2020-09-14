@@ -1,18 +1,19 @@
 import React from "react"
 import {FILTERS} from "../constants"
-
+//  {currentFilter == FILTERS.ALL_TASK ? color="secondery" : "inherit"}
 const Filters = ({currentFilter, changeFilter}) => {
   return (
     <div>
-      <h3>Filters:
+      <h3 className="row ">To-Do-List 
       </h3>
       <button
-      style={{background:currentFilter === FILTERS.ALL_TASK ? "gray" : "inherit"}}
+    
         onClick={() => {
         changeFilter(FILTERS.ALL_TASK)
       }}
         className="btn btn-info m-3">All</button>
       <button
+       
         onClick={() => {
         changeFilter(FILTERS.COMPLETED)
       }}

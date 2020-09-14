@@ -15,6 +15,24 @@ export default class TaskContainer extends React.Component{
     }
 
     //!LOGIG 
+    get currentList(){
+        const {currentFilter,taskList} = this.state;
+    
+        switch (currentFilter) {
+            case FILTERS.ALL_TASK:
+                return taskList
+                
+                case FILTERS.COMPLETED:
+                    return taskList.filter(task =>task.isCompleted);
+        
+                    case FILTERS.UNCOMPLETED:
+                        return taskList.filter(task =>!task.isCompleted);
+            default:
+                return taskList
+        }
+    }
+
+
 addTask = (title) =>{
     const newTaskList = [... this.state.taskList]
 
@@ -46,15 +64,16 @@ addTask = (title) =>{
 changeFilter = (newFilter) => this.setState({currentFilter:newFilter})
 
 
+
     render (){
 
-        const {taskList , currentFilter} = this.state
-        const {addTask , onCheck , changeFilter} = this;
+        const { currentFilter} = this.state
+        const {addTask , onCheck , changeFilter , currentList} = this;
         return (
             <div>
                 <Filters currentFilter={currentFilter} changeFilter={changeFilter}/>
                 <AddTask addTask={addTask} />
-                <TaskList onCheck={onCheck} taskList={taskList} />
+                <TaskList onCheck={onCheck} taskList={currentList} />
             </div>
         ) 
    
